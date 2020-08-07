@@ -1,0 +1,444 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    /* 1 */
+    font-size: 100%;
+    /* 1 */
+    /* 1 */
+    margin: 0;
+    /* 2 */
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+td {
+    font-size: 8pt;
+    color: #63382D;
+}
+
+.mnbdy {
+    background-color: #FBF5F3;
+    overflow: auto;
+    padding: 2px;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.fmbdy {
+    background-color: #FBF5F3;
+    padding: 2px;
+    margin: 0px;
+}
+
+/*A:link {
+    text-decoration: none;
+    color: #AA0004;
+}
+
+A:visited {
+    text-decoration: none;
+    color: #AA0004;
+}
+
+A:active {
+    text-decoration: underline;
+    color: #000000;
+}
+
+A:hover {
+    text-decoration: underline;
+    color: #000000;
+}*/
+
+input[type=text],
+input[type=button],
+button,
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.alert-msg {
+    text-align: center;
+    background: red;
+    color: #FFF;
+    padding: 8px 0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+
+.hbtbl {
+    table-layout: fixed;
+    word-wrap: break-word;
+    overflow: hidden;
+
+}
+
+.stxt {
+    padding: 2px;
+}
+
+.stxt2 {
+    background-color: #EDDEDB;
+    color: #63382D;
+}
+
+.admincp {
+    display: none;
+}
+
+.wap-cp-1 .admincp {
+    display: block;
+
+}
+
+.wap-cp-1 td.admincp {
+    display: table-cell;
+}
+
+
+.dtxt,
+.dtxt2,
+.status {
+    color: #B69088;
+    font-size: 7pt;
+    text-align: right;
+}
+
+.dtxt2 {
+    color: #B69088;
+}
+
+.pn_std {
+    cursor: pointer;
+}
+
+.pn_reg {}
+
+.pn_mod {}
+
+.pn_adm {}
+
+.cfrm {
+    margin-bottom: 0px;
+}
+
+.frmtb {
+    font-size: 8pt;
+    background-color: #EDDEDB;
+    border: #d7c9c6 1px solid;
+    color: #63382D;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin: 1px 2px 1px 2px;
+}
+
+
+
+.lnk {
+    color: #AA0004;
+}
+
+.pic {
+    float: left;
+    width: 45px;
+    height: 45px;
+    margin: 0;
+    margin-left: -2px;
+    padding-right: 2px;
+}
+
+.atname {}
+
+.status {
+    float: right;
+}
+
+.msg.Private.Sent .status:after {
+    content: ' \2714';
+}
+
+.msg.Private.Delivered .status:after {
+    content: ' \2714\2714';
+}
+
+img.bbImg {
+    max-width: 100%;
+    max-height: 240px;
+    vertical-align: top;
+}
+
+.modtools a {
+    padding: 0 0.2em;
+}
+
+img.flag {
+    float: right;
+    width: 16px;
+    height: 11px;
+    overflow: hidden;
+}
+
+.bbSmall {
+    font-size: 80%;
+}
+
+.bbBig {
+    font-size: 150%;
+}
+
+#scrollmain tr:nth-child(even) {
+    background: #EDDEDB;
+}
+
+.form-chat {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 93px;
+    overflow: hidden;
+    bottom: 0;
+}
+
+.form-chat table {
+    width: 100%;
+}
+
+.form-chat table {
+    width: 100%;
+}
+
+.input-message {
+    width: calc(100% - 43px);
+    float: left;
+    outline: none;
+}
+
+.input-name,
+.input-email {
+    width: calc(50% - 12px);
+}
+
+.emoji-bg {
+    width: 70%;
+    position: absolute;
+    right: 5px;
+    bottom: 30px;
+    /*height: 100px;*/
+    background: #FBF5F3;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 5px;
+    display: none;
+    z-index: 9999;
+}
+
+.emoji-bg ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.emoji-bg li {
+    float: left;
+    list-style: none;
+    cursor: pointer;
+}
+
+.banned-item {
+    text-align: right;
+}
+
+.disconnect {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 9999;
+    background: #B69088;
+    color: #000;
+    height: 100px;
+    width: 100%;
+    padding: 10px 10px;
+    text-align: center;
+    display: none;
+}
+
+input {
+    /*-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;*/
+}
+
+.input-message {
+    height: 54px;
+}
+
+.send-message {
+    box-sizing: content-box;
+    height: 55px;
+}
+
+@media only screen and (max-width: 767px) {
+
+    body td,
+    .frmtb {
+        font-size: 10pt;
+    }
+
+    .wap-emoji {
+        display: none;
+    }
+
+    .stxt {
+        padding: 6px 3px;
+    }
+
+    .input-message {
+        height: 25px;
+        float: left;
+        border-radius: 5px;
+        line-height: 25px;
+    }
+
+    .send-message {
+        height: 26px;
+        width: 48px;
+        float: left;
+
+        border-radius: 5px;
+    }
+
+    .form-chat {
+        height: 60px;
+    }
+
+    .input-message {
+        width: calc(100% - 100px);
+    }
+
+    .emoji-mobile {
+        font-size: 17pt;
+        width: 23px;
+        height: 23px;
+        float: left;
+        margin-top: 2px;
+        margin-right: 2px;
+        filter: grayscale(100%);
+    }
+
+    .emoji-bg li {
+        margin: 5px;
+        margin: 0px 6px;
+    }
+}
+
+/*.frmbtn {
+    font-size: 8pt;
+    background-color: #EEE;
+    border: #d7c9c6 1px solid;
+    color: #333;
+    font-weight: bold;
+    padding-left: 3px;
+    padding-right: 3px;
+    vertical-align: top;
+    margin: 1px 2px 1px 2px;
+}
+*/
+
+#onliners {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+a.frmbtn {
+    font-size: 9pt;
+    border: #999 1px solid;
+    color: #333;
+    /* font-weight: bold;*/
+    display: block;
+    /* padding-left: 3px;
+    padding-right: 3px;*/
+    vertical-align: top;
+    text-align: center;
+    width: 38px;
+    height: 55px;
+    float: right;
+    margin-right: 5px;
+}
+
+.platfrom-desktop .input-message {
+    height: 54px !important;
+    width: calc(100% - 50px) !important;
+}
+
+.platfrom-desktop .form-chat {
+    height: 93px !important;
+}
+
+.platfrom-desktop .send-message {
+    height: 57px !important;
+    line-height: 54px !important;
+    width: 29px !important;
+    float: right !important
+}
+
+.platfrom-desktop .emoji-mobile {
+    display: none;
+}
+
+.platfrom-desktop .wap-emoji {
+    display: table-row !important;
+}
+
+.platfrom-mobile a.frmbtn {
+    height: 31px;
+    line-height: 32px;
+}
+
+.emoji-mobile {
+    position: absolute;
+    right: 52px;
+    bottom: 11px;
+    display:none;
+}
+
+.platfrom-mobile .emoji-mobile{
+    display:block;
+}
+
+.emoji-mobile img{
+    max-width:100%;
+}
+
+
+.platfrom-mobile .input-message {
+    width: calc(100% - 90px);
+    padding-right: 30px;
+    padding-left: 5px;
+    height:30px;
+}
+.chat-message{
+    position:relative;
+}
+
+.typing{
+    background: #63382D !important;
+    color: #FFF !important;
+    border: 1px solid #63382D !important;
+}

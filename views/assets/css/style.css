@@ -1,0 +1,464 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    /* background-color: #ccc; */
+}
+
+nav.nav_sub {
+    background-color: #ff1100;
+    border-radius: 10px;
+}
+
+nav.nav_sub ul {
+    display: flex;
+}
+
+li {
+    list-style: none;
+}
+
+nav.nav_sub ul li a {
+    color: white;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.onidprocess {
+    position: absolute;
+    z-index: 100;
+    width: 70px;
+    height: 60px;
+    border-radius: 35px;
+    line-height: 70px;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    padding-top: 10px;
+    margin-left: -35px;
+    margin-top: -35px;
+    background: #FFF;
+    border: 1px solid #CCC;
+    opacity: 0.8;
+}
+
+#box_kqxs_minhngoc {
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    padding: 5px 0px;
+    position: relative;
+    margin: 0 auto
+}
+
+#box_kqxs_minhngoc img {
+    border: 0px;
+}
+
+#box_kqxs_minhngoc span.btnprint_minhngoc {
+    display: block;
+    background: url(images/printer.png);
+    width: 22px;
+    height: 22px;
+}
+
+.box_kqxs_mini {
+    margin: 0 5px;
+    clear: both;
+    display: block;
+}
+
+.dnw-content-layout .box_kqxs_mini td {
+    vertical-align: middle;
+}
+
+.box_kqxs_mini .title {
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    clear: both;
+    display: block;
+    text-align: center;
+}
+
+.box_kqxs_mini .title a,
+.box_kqxs_mini .title td {
+    text-align: center;
+    color: #FFF;
+    vertical-align: middle;
+    font-weight: bold;
+    text-transform: uppercase
+}
+
+.box_kqxs_mini .title a:hover {
+    color: #FF0
+}
+
+.box_kqxs_mini td {
+    vertical-align: middle;
+}
+
+
+/* bang ket qua tinh */
+
+.giaidb {
+    font-weight: bold
+}
+
+.bkqtinhmiennam_mini {
+    border: 1px #999 solid;
+    border-right: 0px;
+    border-bottom: 0px;
+    width: 100%;
+}
+
+.bkqtinhmienbac_mini {
+    height: 336px;
+}
+
+.box-number-content {
+    overflow: hidden;
+}
+
+.bkqtinhmiennam_mini td {
+    border: 1px #999 solid;
+    border-top: 0px;
+    border-left: 0px;
+    text-align: center;
+    height: 60px;
+    padding: 0px
+}
+
+.bkqtinhmienbac_mini {
+    border: 1px #999 solid;
+    border-bottom: 0px;
+    border-right: 0px;
+    width: 100%;
+}
+
+.bkqtinhmienbac_mini tr:first-child {
+    display: none;
+}
+
+.bkqtinhmienbac_mini td {
+    border: 1px #999 solid;
+    border-top: 0px;
+    border-left: 0px;
+    text-align: center;
+    height: 24px;
+    padding: 0px
+}
+
+img[src="/upload/images/tools.png"],
+img[src="//www.minhngoc.net.vn/images/icon/print.gif"] {
+    display: none;
+}
+
+.box-number-content {
+    overflow-y: auto;
+}
+
+.box-number-content .alert-success {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.box-number-content .box-ketqua {
+    margin-top: 10px;
+}
+
+.alert-success #md5-loto-rs,
+.alert-success #md5-loto-token {
+    word-break: break-word;
+}
+
+b.hight-light {
+    background-color: #ff0;
+}
+
+.breadcrumb {
+    background: none;
+    margin-bottom: 0;
+    padding: 0 5px;
+}
+
+.breadcrumb-item a {
+    color: #999;
+}
+
+.title a {
+    color: #d70a0a;
+}
+
+.tabs-content {
+    display: none;
+    /*background: #edf1f2;*/
+    /*padding: 10px;*/
+    margin-bottom: 10px;
+    /*border-radius: 0 10px 10px 10px;*/
+}
+
+.tabs-content #frm-deposit-make .block-title {
+    margin-right: 0;
+}
+
+.tabs-content.current {
+    display: block;
+}
+
+.giao-dich .tabs {
+    /*display: inline-block;*/
+    /*width: 100%;*/
+    font-size: 0;
+    margin: 0 -10px 15px;
+    background: #ffba00;
+}
+
+.giao-dich .tabs .tab-link {
+    display: inline-block;
+    padding: 10px 20px 10px 50px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #000;
+    /*font-weight: bold;*/
+    /*background-color: #fae44c;*/
+    margin-right: 10px;
+    /*border-radius: 10px 10px 0 0;*/
+    position: relative;
+    cursor: pointer;
+}
+
+.giao-dich .tabs .tab-link.current {
+    background-color: #ff0404;
+    color: #fff;
+}
+
+.giao-dich .tabs .tab-link:before {
+    content: "";
+    display: block;
+    position: absolute;
+}
+
+.giao-dich .tabs .tab-link--bank:before {
+    background: url('public/site/images/icn-deposit--bank.png') no-repeat center;
+    background-size: cover;
+    height: 29px;
+    width: 20.5px;
+    top: 10px;
+    left: 20px;
+}
+
+.giao-dich .tabs .tab-link--bank.current:before {
+    background: url('public/site/images/icn-deposit--bankcurrent.png') no-repeat center;
+    background-size: cover;
+}
+
+.giao-dich .tabs .tab-link--card:before {
+    background: url('public/site/images/icn-deposit--card.png') no-repeat center;
+    background-size: cover;
+    height: 23px;
+    width: 33px;
+    top: 12px;
+    left: 10px;
+}
+
+.giao-dich .tabs .tab-link--card.current:before {
+    background: url('public/site/images/icn-deposit--cardcurrent.png') no-repeat center;
+    background-size: cover;
+}
+
+.note-text--deposit {
+    font-style: italic;
+    font-size: 12px;
+}
+
+
+/* .banner-card--deposit {
+    background: url('public/site/images/banner-card--deposit.png') no-repeat center;
+    background-size: cover;
+    height: 200px;
+    margin-bottom: 20px;
+} */
+
+.pg-normal.lastopen {
+    display: none;
+}
+
+span.pg-normal a {
+    color: #000;
+    margin: 0 4px;
+}
+
+.vergo-tab a {
+    color: #fff;
+    margin-right: 8px;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.vergo-tab a+a {
+    margin-left: 8px;
+}
+
+.vergo-tab a.active {
+    text-decoration: underline;
+}
+
+.lode-logout {
+    padding-left: 17px;
+    position: relative;
+    margin-left: 10px;
+    color: #7c7b7b;
+    font-size: 14px;
+}
+
+.lode-logout:before {
+    content: "";
+    display: block;
+    background: url('https://lode88.us/public/site/layout/images/icn-lode--logout.png') no-repeat center;
+    background-size: cover;
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    top: 1px;
+    left: 0;
+}
+
+.lode-deposit {
+    display: flex;
+    align-items: center;
+}
+
+.lode-deposit p {
+    color: #d70a0a;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: initial;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+.deposit-money a {
+    font-size: 14px;
+    font-style: initial;
+    color: #000;
+    padding: 5px 10px 5px 45px;
+    border: 1px solid #e5c513;
+    border-radius: 3px;
+    background-color: #eee00e;
+    position: relative;
+}
+
+.deposit-money a:before {
+    content: "";
+    display: inline-block;
+    background: url('https://lode88.us/public/site/layout/images/icn-lode--deposit.png') no-repeat center;
+    background-size: cover;
+    height: 19px;
+    width: 29px;
+    position: absolute;
+    left: 10px;
+    top: 3px;
+}
+
+.tb-deposit-quick {
+    position: relative;
+}
+
+.warning-notification {
+    display: none;
+    visibility: hidden;
+}
+
+.maintenance-service .warning-notification {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 1px solid #797979;
+    z-index: 9;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #797979;
+    background-color: rgba(121, 121, 121, 0.8);
+    color: #fff;
+    font-size: 20px;
+    display: block;
+    visibility: visible;
+}
+
+.tabactived {
+    padding: 0 4px 0 4px;
+    color: yellow;
+    background-color: green;
+    border: 1px solid #2D89EF;
+    cursor: pointer;
+}
+
+#dangky .dialog {
+    width: 300px;
+}
+
+.dialog-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4b4b4b;
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+}
+
+.close {
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    right: 12px;
+    top: 5px;
+    cursor: pointer;
+}
+
+#dangky .dialog-content {
+    padding: 10px 22px;
+}
+
+#dangky label {
+    color: #c70a0a;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.clearfix {
+    clear: both;
+}
+
+#dangky .btn-input {
+    float: right !important;
+    margin-top: 10px;
+    padding: 8px 20px !important;
+}
+
+div#div_tongtiencuoc {
+    float: left;
+    /* background: url(../img/bg_number.png) no-repeat; */
+    background-size: cover;
+}
+
+i.tc {
+    background: none;
+    color: red;
+    font-weight: bold;
+}
+
+.tien-lo {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 121px;
+    font-size: 14px;
+    text-align: center;
+    height: 32px;
+}
