@@ -74,6 +74,11 @@ $(document).ready(() => {
 
             } else {
 
+                $('#tongtiendanh').val('')
+
+
+
+
             }
 
         } else {
@@ -270,6 +275,7 @@ $(document).ready(() => {
 
                 tong = array_number.length * tien * giatri
                 array_number = array_number.join('-')
+                $('#tongtiendanh').val(tong)
 
             }
 
@@ -278,12 +284,17 @@ $(document).ready(() => {
             tong = array_number.length * tien * giatri
             array_number = array_number.join('-')
             $('#tongtiendanh').val(tong)
+            if (array_number <= 0) {
+                $('#tongtiendanh').val('')
+
+            }
+
 
         }
         if (isNaN(tong)) {
             tong = 0
         }
-        $('#tongtiendanh').val(tong)
+
 
     })
     let tong = 0;
@@ -300,11 +311,24 @@ $(document).ready(() => {
             if (isNaN(tong)) {
                 tong = 0;
             }
+            $('#tongtiendanh').val(tong)
 
         } else {
+
             $(this).val('')
             alert('bạn chưa chọn số')
         }
-        $('#tongtiendanh').val(tong)
+        if (isNaN(tien)) {
+            $(this).val('1')
+        }
+    })
+    $(document).on('click', '.btn-danhde', function() {
+        let sodanh = $('#sodanh').text()
+        let tiendanh = $('#tienmotcon').val()
+        if (sodanh == "" || tiendanh == "") {
+            alert('false')
+        } else {
+            alert('submit')
+        }
     })
 })
