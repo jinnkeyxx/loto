@@ -34,7 +34,7 @@
 
                                                 <span class="so">
                                                     <span
-                                                        class="so-item"><?php if($number < 10){echo "0".$number;} else {echo $number;} ?></span>
+                                                        class="so-item so-de"><?php if($number < 10){echo "0".$number;} else {echo $number;} ?></span>
                                                 </span>
 
                                                 <?php } ?>
@@ -83,15 +83,15 @@
                 <div class="tien-danh">
                     <div class="fl">
                         <div class="tien act">Tổng tiền đánh (K)</div>
-                        <input type="text" name="amount" placeholder="0" onkeyup="FormatNumber(this)"
-                            class="format_currency tongtiendanh" id="tongtiendanh">
+                        <input type="text" name="amount" placeholder="0" 
+                            class="format_currency tongtiendanh" id="tongtiendanh-danhde">
                     </div>
 
                     <div class="fl" style="margin-left: 10px;">
                         <div class="tien act">
                             Số tiền trên 1 con (K)
                         </div>
-                        <input type="text" id="tienmotcon" class="tienmotcon" placeholder="0">
+                        <input type="text" id="tienmotcon-danhde" class="tienmotcon" placeholder="0">
                     </div>
                     <div class="fr">
                         <div style="width: 173px;" class="tien act">Tiền thắng/1 con (K)</div>

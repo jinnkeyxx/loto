@@ -224,3 +224,13 @@ function setCaretPosition(elem, caretPos) {
 }
 $('.tongtiendanh').attr('disabled', 'true')
 formatnumber('tienmotcon')
+    // formatnumber('tienmotcon-ba-cang')ng'
+$(document).on('click', '.kd1', function() {
+    $('.kd1').removeClass('act')
+
+    $(this).addClass('act')
+    let data = $(this).text()
+    data = data.trim()
+    $('#loaidedanh').text(data)
+    alert(data)
+})

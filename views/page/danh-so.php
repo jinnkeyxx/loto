@@ -164,7 +164,7 @@
                                                 <div class="tien act">
                                                     Số điểm trên 1 con (K)
                                                 </div>
-                                                <input type="text" id="tienmotcon" class=" tien-lo" placeholder="0" >
+                                                <input type="text" id="tienmotcon" class="tienmotcon tien-lo" placeholder="0" >
                                             </div>
                                             <div class="fr">
                                                 <div style="width: 173px;" class="tien act">Tiền thắng/1 con (K)</div>
@@ -272,6 +272,6 @@
 
 
 </div>
-                                                                        <?php } else{?>
-                                                                            error 
+                                                                        <?php } else{ include "./views/html/error404.html"?>
+                                                                           
                                                                         <?php } ?>

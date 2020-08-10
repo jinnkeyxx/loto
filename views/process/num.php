@@ -10,6 +10,6 @@ $text2 = "00";
 
 <?php for($number = $number_start; $number <= $number_end; $number++){ ?>
 <span class="so">
-    <span class="so-item"><?php if($number < 10){echo $text2 . $number;}  else {echo $number;} ?></span>
+    <span class="so-item so-ba-cang"><?php if($number < 10){echo $text2 . $number;}  else {echo $number;} ?></span>
 </span>
 <?php } ?>

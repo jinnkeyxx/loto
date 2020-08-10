@@ -107,14 +107,14 @@
                     <div class="fl">
                         <div class="tien act">Tổng tiền đánh (K)</div>
                         <input type="text" name="amount" placeholder="0" 
-                            class="format_currency tongtiendanh" id="tongtiendanh">
+                            class="format_currency tongtiendanh" id="tongtiendanh-bacang">
                     </div>
 
                     <div class="fl" style="margin-left: 10px;">
                         <div class="tien act">
                             Số tiền trên 1 con (K)
                         </div>
-                        <input type="text" id="tienmotcon" class="tienmotcon" placeholder="0">
+                        <input type="text" id="tienmotcon-ba-cang" class="tienmotcon" placeholder="0">
                     </div>
                     <div class="fr">
                         <div style="width: 173px;" class="tien act">Tiền thắng/1 con (K)</div>

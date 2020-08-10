@@ -319,16 +319,153 @@ $(document).ready(() => {
             alert('bạn chưa chọn số')
         }
         if (isNaN(tien)) {
-            $(this).val('1')
+            $(this).val('')
         }
     })
     $(document).on('click', '.btn-danhde', function() {
         let sodanh = $('#sodanh').text()
-        let tiendanh = $('#tienmotcon').val()
+        let tiendanh = $('.tienmotcon').val()
+        let loaide = $('#loaidedanh').text()
+        let tongtiendanh = $('.tongtiendanh').val()
         if (sodanh == "" || tiendanh == "") {
             alert('false')
         } else {
-            alert('submit')
+            alert(tongtiendanh)
+            $.ajax({
+                url: 'model/ajax/danhso.php',
+                type: 'post',
+                data: { sodanh: sodanh, tiendanh: tiendanh, loaide: loaide, tong: tongtiendanh },
+                dataType: 'json',
+                beForeSend: () => {
+
+                },
+                success: (data) => {
+                    if (data.status == 0) {
+                        swall(data.messages, 'succuces')
+                        setTimeout(() => {
+                            window.location.reload()
+                        }, 2000)
+                    } else if (data.status == 1) {
+                        swall(data.messages, 'error')
+                    }
+                }
+            })
         }
+    })
+    $(document).on('click', '.so-ba-cang', function() {
+        let giatri = 1;
+        let check = $(this).attr('class')
+        let tong = 0;
+        let tien = $('.tienmotcon-ba-cang').val()
+        tien = parseInt(tien)
+        if (check.includes('so-act')) {
+
+            if ($('#tienmotcon-ba-cang').val().length > 0) {
+                array_number = array_number.split('-')
+
+                tong = array_number.length * tien * giatri
+                array_number = array_number.join('-')
+                $('#tongtiendanh-bacang').val(tong)
+
+            }
+
+        } else {
+            array_number = array_number.split('-')
+            tong = array_number.length * tien * giatri
+            array_number = array_number.join('-')
+            $('#tongtiendanh-bacang').val(tong)
+            if (array_number <= 0) {
+                $('#tongtiendanh-bacang').val('')
+
+            }
+
+
+        }
+        if (isNaN(tong)) {
+            tong = 0
+        }
+
+    })
+    $(document).on('keyup', '#tienmotcon-ba-cang', function() {
+        let giatri = 1;
+        let tien = $(this).val()
+        tien = parseInt(tien)
+
+        if (array_number.length > 0) {
+            array_number = array_number.split('-')
+
+            tong = array_number.length * tien * giatri
+            array_number = array_number.join('-')
+            if (isNaN(tong)) {
+                tong = 0;
+            }
+            $('#tongtiendanh-bacang').val(tong)
+
+        } else {
+
+            $(this).val('')
+            alert('bạn chưa chọn số')
+        }
+        if (isNaN(tien)) {
+            $(this).val('')
+        }
+    })
+    $(document).on('keyup', '#tienmotcon-danhde', function() {
+        let giatri = 1;
+        let tien = $(this).val()
+        tien = parseInt(tien)
+
+        if (array_number.length > 0) {
+            array_number = array_number.split('-')
+
+            tong = array_number.length * tien * giatri
+            array_number = array_number.join('-')
+            if (isNaN(tong)) {
+                tong = 0;
+            }
+            $('#tongtiendanh-danhde').val(tong)
+
+        } else {
+
+            $(this).val('')
+            alert('bạn chưa chọn số')
+        }
+        if (isNaN(tien)) {
+            $(this).val('')
+        }
+    })
+    $(document).on('click', '.so-de', function() {
+        let giatri = 1;
+        let check = $(this).attr('class')
+        let tong = 0;
+        let tien = $('#tienmotcon-danhde').val()
+        tien = parseInt(tien)
+        if (check.includes('so-act')) {
+
+            if ($('#tienmotcon-danhde').val().length > 0) {
+                array_number = array_number.split('-')
+
+                tong = array_number.length * tien * giatri
+                array_number = array_number.join('-')
+                $('#tongtiendanh-danhde').val(tong)
+
+            }
+
+        } else {
+            array_number = array_number.split('-')
+            tong = array_number.length * tien * giatri
+            array_number = array_number.join('-')
+            $('#tongtiendanh-danhde').val(tong)
+            if (array_number <= 0) {
+                $('#tongtiendanh-danhde').val('')
+
+            }
+
+
+        }
+        if (isNaN(tong)) {
+            tong = 0
+        }
+
     })
 })
