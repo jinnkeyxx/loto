@@ -124,6 +124,7 @@
 
 <script src="views/assets/js/main.js"></script>
 <script src="views/assets/js/ajax.js"></script>
+
 </div>
 
 </body>

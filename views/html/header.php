@@ -21,9 +21,9 @@
     
     <link href="https://lode88.us/public/min/begin.css?v=6" rel="stylesheet" type="text/css" />
     
-    <!-- <link href="../assets/css/begin.css?v=6" rel="stylesheet" type="text/css" /> -->
+
     <link rel="stylesheet" href="views/assets/css/style.css">
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="views/assets/css/sweetalert2.css">
 
@@ -77,7 +77,7 @@
             <div class="txt-link reset-pwd">
                 <div class="lode-deposit">
                     <p id="cash"><?php echo number_format($get_user['sodu']);  ?> K</p>
-                    <div class="deposit-money"><a href="https://lode88.us/member.html#giao-dich">NẠP TIỀN</a></div>
+                    <div class="deposit-money"><a href="?page=member">NẠP TIỀN</a></div>
                 </div>
             </div>
 
@@ -86,7 +86,7 @@
             <div class="clearfix"></div>
             <div class="menu">
                 <ul>
-                    <li class="mn-home active"><a href="https://lode88.us/">&nbsp;</a></li>
+                    <li class="mn-home active"><a href="<?php echo base_url(); ?>">&nbsp;</a></li>
                     <li class="">
                         <a href="<?php echo base_url(); ?>">Lô tô</a>
                     </li>
@@ -114,3 +114,14 @@
             </div>
             <div class="clearfix"></div>
         </div>
+        <script>
+            
+            setInterval(() =>{
+            let date = new Date();
+            let h = date.getHours();
+            let m = date.getMinutes();
+            let s = date.getSeconds();
+            document.getElementById('time_view').innerText = `${h} : ${m} : ${s}`
+
+            },1000)
+        </script>

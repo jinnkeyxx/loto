@@ -100,47 +100,7 @@ Toast.fire({
     title: 'Signed in successfully'
 })
 
-function formatnumber(id) {
-    var input = document.getElementById(id);
-    var currentValue;
 
-    input.addEventListener('input', function(event) {
-        var cursorPosition = getCaretPosition(input);
-        var valueBefore = input.value;
-        var lengthBefore = input.value.length;
-        var specialCharsBefore = getSpecialCharsOnSides(input.value);
-        var number = removeThousandSeparators(input.value);
-
-        if (input.value == '') {
-            return;
-        }
-
-        input.value = formatNumber(number.replace(getCommaSeparator(), '.'));
-
-        // if deleting the comma, delete it correctly
-        if (currentValue == input.value && currentValue == valueBefore.substr(0, cursorPosition) + getThousandSeparator() + valueBefore.substr(cursorPosition)) {
-            input.value = formatNumber(removeThousandSeparators(valueBefore.substr(0, cursorPosition - 1) + valueBefore.substr(cursorPosition)));
-            cursorPosition--;
-        }
-
-        // if entering comma for separation, leave it in there (as well support .000)
-        var commaSeparator = getCommaSeparator();
-        if (valueBefore.endsWith(commaSeparator) || valueBefore.endsWith(commaSeparator + '0') || valueBefore.endsWith(commaSeparator + '00') || valueBefore.endsWith(commaSeparator + '000')) {
-            input.value = input.value + valueBefore.substring(valueBefore.indexOf(commaSeparator));
-        }
-
-        // move cursor correctly if thousand separator got added or removed
-        var specialCharsAfter = getSpecialCharsOnSides(input.value);
-        if (specialCharsBefore[0] < specialCharsAfter[0]) {
-            cursorPosition += specialCharsAfter[0] - specialCharsBefore[0];
-        } else if (specialCharsBefore[0] > specialCharsAfter[0]) {
-            cursorPosition -= specialCharsBefore[0] - specialCharsAfter[0];
-        }
-        setCaretPosition(input, cursorPosition);
-
-        currentValue = input.value;
-    });
-}
 
 function getSpecialCharsOnSides(x, cursorPosition) {
     var specialCharsLeft = x.substring(0, cursorPosition).replace(/[0-9]/g, '').length;
@@ -223,8 +183,8 @@ function setCaretPosition(elem, caretPos) {
     }
 }
 $('.tongtiendanh').attr('disabled', 'true')
-formatnumber('tienmotcon')
-    // formatnumber('tienmotcon-ba-cang')ng'
+
+// formatnumber('tienmotcon-ba-cang')ng'
 $(document).on('click', '.kd1', function() {
     $('.kd1').removeClass('act')
 
@@ -232,5 +192,5 @@ $(document).on('click', '.kd1', function() {
     let data = $(this).text()
     data = data.trim()
     $('#loaidedanh').text(data)
-    alert(data)
+
 })

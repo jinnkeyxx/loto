@@ -13,12 +13,12 @@ if(isset($username)){
     }
     else {
         $get_user = $db->total("SELECT * FROM `users` WHERE `user` = '$username'");
-        if($tiendanh > $get_user['sodu']){
+        if($tong > $get_user['sodu']){
             $status = 1;
-            $messages = "bạn không đủ tiền để đáng";
+            $messages = "bạn không đủ tiền để đánh";
         }
         else {
-            $danhso = $db->insert('danhso',array('user' => $username , 'sodanh' => $sodanh , 'kieudanh' => $loaide , 'tiendanh' => $tiendanh , 'date' => $date));
+            $danhso = $db->insert('danhso',array('user' => $username , 'sodanh' => $sodanh , 'kieudanh' => $loaide , 'tiendanh' => $tiendanh , 'date' => $date , 'tong' => $tong));
             $tien = $get_user['sodu'] - $tong;
             $update_sodu = $db->update('users' , array('sodu' => $tien) , array('user' => $username));
             $hethong = $db->total("SELECT * FROM `he_thong`");

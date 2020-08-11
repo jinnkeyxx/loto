@@ -462,3 +462,7 @@ i.tc {
     text-align: center;
     height: 32px;
 }
+
+#fix {
+    width: 100% !important;
+}

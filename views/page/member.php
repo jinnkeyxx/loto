@@ -1,4 +1,6 @@
-<?php if(isset($username)){ ?>
+<?php if(isset($username)){ 
+
+    ?>
 <div class="main page-lode">
     <div class="taikhoan">
         <div class="account-header clearfix ">
@@ -21,70 +23,55 @@
             <div class="bhead">
                 <div class="fl">
                     <div class="tab vergo-tab">
-                        <a href="#lode_history" class="active">Lịch sử đánh đề</a> |
-                        <a href="#game_history">Lịch sử cá cược</a> |
-                        <a href="#payment_history">Lịch sử giao dịch</a>
+                        <a href="#" class="active">Lịch sử đánh đề</a> |
+                       
 
                     </div>
                 </div>
             </div>
             <div class="bcontent" id="lode_history">
-                <form id="frm-form-loto" action="https://lode88.us/loto_order/showlist.html" method="get">
+                <form id="frm-form-loto"  method="get">
                     <div class="row chon-ngay" style="margin-bottom: 10px;">
-                        <div class="col-xs-1" style="padding-right: 0; width: 10%;">
-                            <span class="label-form">Xổ ngày: </span>
-                        </div>
-                        <div class="col-xs-2">
-                            <input name="created" id="from_overview_playhistory_fromdate_loto" type="text"
-                                class="form-control txt-red datepicker hasDatepicker" value="04-08-2020">
-                        </div>
-                        <div class="col-xs-1" style="padding-right: 0; width: 10%;">
-                            <span class="label-form">Đến ngày: </span>
-                        </div>
-                        <div class="col-xs-2">
-                            <input name="created_to" id="from_overview_playhistory_todate_loto" type="text"
+                        
+                        <!-- <div class="col-xs-2">
+                            
+                            <input name="ngay" id="from_overview_playhistory_todate_loto" type="text"
                                 class="form-control txt-red datepicker hasDatepicker" value="05-08-2020">
                         </div>
                         <div class="col-xs-2">
                             <span>
                                 <input id="submit-btn-loto" type="submit" class="btn btn-signin form-control"
                                     value="Xem"></span>
-                        </div>
+                        </div> -->
                     </div>
                     <table id="tblshower_playhistory">
                         <thead>
                             <tr>
-                                <th colspan="10">
-                                    <select name="page_size" onchange="onchange_limitpage(this)" style="width: 60px;"
-                                        id="form_playhistory_show_record">
-                                        <option _url="https://lode88.us/loto_order/showlist.html?page_size=10"
-                                            value="10">10</option>
-                                        <option _url="https://lode88.us/loto_order/showlist.html?page_size=20"
-                                            value="20">20</option>
-                                        <option _url="https://lode88.us/loto_order/showlist.html?page_size=40"
-                                            value="40">40</option>
-                                        <option _url="https://lode88.us/loto_order/showlist.html?page_size=60"
-                                            value="60">60</option>
-                                        <option _url="https://lode88.us/loto_order/showlist.html?page_size=All"
-                                            value="All">All</option>
-                                    </select>
-                                </th>
+                                
                             </tr>
                         </thead>
                         <tbody id="table_playhistory">
                             <tr>
-                                <td>Ngày tạo</td>
+                                
                                 <td>Ngày đánh</td>
                                 <td>Đài</td>
                                 <td>Loại đề</td>
                                 <td>Số</td>
-                                <td>Tiền 1 con</td>
+                                <td>tiền đánh một con</td>
                                 <td>Tổng tiền</td>
-                                <td>Trúng</td>
-                                <td>Kết quả</td>
-                                <td>Ghi chú</td>
                             </tr>
-
+                            <?php $check_ls = $db->query("SELECT * FROM `danhso` WHERE `user` = '$username' ORDER BY `id` DESC");
+                                while($row = @mysqli_fetch_array($check_ls)):
+                             ?>
+                            <tr>
+                            <td><?= $row['date']; ?></td>
+                            <td>Miền Bắc</td>
+                            <td><?= $row['kieudanh']; ?></td>
+                            <td><?= $row['sodanh']; ?></td>
+                            <td><?= $row['tiendanh'] . 'K'; ?></td>
+                            <td><?= $row['tong'] . 'K'; ?></td>
+                            </tr>
+                                <?php endwhile; ?>
                         </tbody>
                     </table>
 
@@ -106,8 +93,30 @@
             
         </ul>
         <div id="tab-1" class="tabs-content current">
+        <div class="pull-left block-gd nap-tien " id='fix'>
+                    <form name="nap-tien" action="" id="frm-deposit-make">
+                        <div class="title block-title">
+                            Nạp tiền ATM
+                            <div class="bank" data-toggle="modal" data-target="#popBank">
+                                <span class="icon-bank"></span>
+                                <span class="bank-txt">Ngân hàng</span>
+                            </div>
+                        </div>
+                        <div>
+                         
+                            <ul>
+                                <li>số tài khoản : 123</li>
+                                <li>số tài khoản : 123</li>
+                                <li>số tài khoản : 123</li>
+                                <li>số tài khoản : 123</li>
+                                <li>số tài khoản : 123</li>
+                            </ul>
+                        </div>
+                    </form>
+                   
+                </div>
             <div class="deposit-container clearfix">
-                <div class="fl block-gd nap-tien">
+                <!-- <div class="fl block-gd nap-tien">
                     <form name="nap-tien-sieu-toc" action="https://lode88.us/smartpay/new_invoice.html"
                         id="frm-smartpay-deposit-make" class="">
                         <div class="title block-title">NẠP TIỀN siêu tốc</div>
@@ -175,236 +184,8 @@
                             </div>
                         </div>
                     </form>
-                </div>
-                <div class="pull-right block-gd nap-tien">
-                    <form name="nap-tien" action="" id="frm-deposit-make">
-                        <div class="title block-title">
-                            Nạp tiền thủ công
-                            <div class="bank" data-toggle="modal" data-target="#popBank">
-                                <span class="icon-bank"></span>
-                                <span class="bank-txt">Ngân hàng</span>
-                            </div>
-                        </div>
-                        <div>
-                            <!-- <table style="width: 100%;">
-                                <tbody>
-                                    <tr>
-                                        <td style="width: 135px;">
-                                            Chọn ngân hàng (<font color="red"><b>*</b></font>)
-                                        </td>
-                                        <td>
-                                            <select name="bank" id="from_overview_naptien_bank" class="form-control">
-                                                <option></option>
-                                                <option value="VCB">Ngân hàng Vietcombank</option>
-                                                <option value="DongA">Ngân hàng DongA</option>
-                                                <option value="ACB">Ngân hàng ACB</option>
-                                                <option value="VietinBank">Ngân hàng VietinBank</option>
-                                                <option value="BIDV">Ngân hàng Đầu Tư & Phát triển Việt Nam (BIDV)
-                                                </option>
-                                                <option value="Sacombank">Ngân hàng Sacombank</option>
-                                                <option value="Techcombank">Ngân hàng Techcombank</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Chọn Tk nhận (<font color="red"><b>*</b></font>)
-                                        </td>
-                                        
-                                        <td>
-                                            <div id="bank_account_loading_deposite" style="display:none;"><img
-                                                    src="https://lode88.us/public/img/loader.gif" /></div>
-                                            <select id="from_overview_naptien_account" name="bank_number"
-                                                class="form-control">
-                                                <option value="123456789">Lê Văn Nam : 1234567890</option>
-                                            </select>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Tên người gửi (<font color="red"><b>*</b></font>)
-                                        </td>
-                                        <td>
-                                            <input id="from_overview_naptien_customer" name="sender" type="text"
-                                                class="form-control">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Số tiền (<font color="red"><b>*</b></font>)
-                                        </td>
-                                        <td>
-                                            <input type="text" name="amount" class="form-control format_currency"
-                                                id="from_overview_naptien_tien">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Mã giao dịch
-                                        </td>
-                                        <td>
-                                            <input name="user_bank_content" id="from_overview_naptien_magiaodich"
-                                                type="text" class="form-control">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <input class="btn btn-signin" id="btn-form-submit-deposite" type="submit"
-                                                value="Nạp tiền" />
-                                            <input type="hidden" value="2" name="_submit" />
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table> -->
-                            <ul>
-                                <li>số tài khoản : 123</li>
-                                <li>số tài khoản : 123</li>
-                                <li>số tài khoản : 123</li>
-                                <li>số tài khoản : 123</li>
-                                <li>số tài khoản : 123</li>
-                            </ul>
-                        </div>
-                    </form>
-                    <div class="popGlobal modal fade" id="popBank" tabindex="-1" role="dialog"
-                        aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header global-header">
-                                    <button type="button" class="close" data-dismiss="modal"
-                                        aria-label="Close">&times;</button>
-
-                                    <h4 class="modal-title">THÔNG TIN NGÂN HÀNG</h4>
-                                </div>
-                                <div class="modal-body global-body">
-                                    <table class="tableBankInfo" cellpadding="0" cellspacing="0" border="0"
-                                        width="100%">
-                                        <tr class="oddTr">
-                                            <td width="33%">
-                                                <div class="thumbBank"><img
-                                                        src="https://lode88.us/public/site/layout/images/vietcombank.png" />
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="contentBank">
-                                                    <div><strong>Chủ tài khoản:</strong> Dương Văn Tuyên</div>
-                                                    <div><strong>Số tài khoản:</strong> <input class="account_no"
-                                                            id="account_no_0031000375017" type="text" readonly=""
-                                                            value="0031000375017"> <button class="clicktocopy"
-                                                            data-text="0031000375017">copy</button></div>
-                                                    <div><strong>Chi nhánh:</strong> Hải Phòng</div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td width="33%">
-                                                <div class="thumbBank"><img
-                                                        src="https://lode88.us/public/site/layout/images/dongabank.png" />
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="contentBank">
-                                                    <div><strong>Chủ tài khoản:</strong> Nguyễn Phương Uyên</div>
-                                                    <div><strong>Số tài khoản:</strong> <input class="account_no"
-                                                            id="account_no_0110929213" type="text" readonly=""
-                                                            value="0110929213"> <button class="clicktocopy"
-                                                            data-text="0110929213">copy</button></div>
-                                                    <div><strong>Chi nhánh:</strong> HNoi</div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="oddTr">
-                                            <td width="33%">
-                                                <div class="thumbBank"><img
-                                                        src="https://lode88.us/public/site/layout/images/acbbank.png" />
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="contentBank">
-                                                    <div><strong>Chủ tài khoản:</strong> Dương Văn Tuyên</div>
-                                                    <div><strong>Số tài khoản:</strong> <input class="account_no"
-                                                            id="account_no_6211837" type="text" readonly=""
-                                                            value="6211837"> <button class="clicktocopy"
-                                                            data-text="6211837">copy</button></div>
-                                                    <div><strong>Chi nhánh:</strong> Hải Phòng</div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td width="33%">
-                                                <div class="thumbBank"><img
-                                                        src="https://lode88.us/public/site/layout/images/vietinbank.png" />
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="contentBank">
-                                                    <div><strong>Chủ tài khoản:</strong> Nguyễn Phương Uyên</div>
-                                                    <div><strong>Số tài khoản:</strong> <input class="account_no"
-                                                            id="account_no_103869129724" type="text" readonly=""
-                                                            value="103869129724"> <button class="clicktocopy"
-                                                            data-text="103869129724">copy</button></div>
-                                                    <div><strong>Chi nhánh:</strong> Vĩnh Phúc</div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="oddTr">
-                                            <td width="33%">
-                                                <div class="thumbBank"><img
-                                                        src="https://lode88.us/public/site/layout/images/bidvbank.png" />
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="contentBank">
-                                                    <div><strong>Chủ tài khoản:</strong> Nguyễn Phương Uyên</div>
-                                                    <div><strong>Số tài khoản:</strong> <input class="account_no"
-                                                            id="account_no_15110000802853" type="text" readonly=""
-                                                            value="15110000802853"> <button class="clicktocopy"
-                                                            data-text="15110000802853">copy</button></div>
-                                                    <div><strong>Chi nhánh:</strong> HNoi</div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td width="33%">
-                                                <div class="thumbBank"><img
-                                                        src="https://lode88.us/public/site/layout/images/sacombank.png" />
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="contentBank">
-                                                    <div><strong>Chủ tài khoản:</strong> Nguyễn Phương Uyên</div>
-                                                    <div><strong>Số tài khoản:</strong> <input class="account_no"
-                                                            id="account_no_020069373128" type="text" readonly=""
-                                                            value="020069373128"> <button class="clicktocopy"
-                                                            data-text="020069373128">copy</button></div>
-                                                    <div><strong>Chi nhánh:</strong> Hnoi</div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="oddTr">
-                                            <td width="33%">
-                                                <div class="thumbBank"><img
-                                                        src="https://lode88.us/public/site/layout/images/techcombank.png" />
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="contentBank">
-                                                    <div><strong>Chủ tài khoản:</strong> Dương Văn Tuyên</div>
-                                                    <div><strong>Số tài khoản:</strong> <input class="account_no"
-                                                            id="account_no_19034313999011" type="text" readonly=""
-                                                            value="19034313999011"> <button class="clicktocopy"
-                                                            data-text="19034313999011">copy</button></div>
-                                                    <div><strong>Chi nhánh:</strong> CN Hải Phòng</div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
+                
             </div>
         </div>
         <ul class="tabs">
@@ -452,7 +233,7 @@
                                         <td colspan="2">
                                             <p>Lưu ý:</p>
                                             <p class="note-text--deposit">_ Vui lòng chọn đúng mệnh giá và nhà mạng, nếu
-                                                nhập sai Lode88 không chịu trách nhiệm.<br>_ Phí gạch thẻ 35% rẻ nhất
+                                                nhập sai Admin không chịu trách nhiệm.<br>_ Phí gạch thẻ 35% rẻ nhất
                                                 thị trường.</p>
                                         </td>
                                     </tr>

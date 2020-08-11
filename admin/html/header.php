@@ -97,7 +97,7 @@
             </li>
             <li class="nav-item avt-wrapper">
                 <div class="avt dropdown">
-                    <img src="assets/tuat.jpg" alt="User image" class="dropdown-toggle" data-toggle="user-menu">
+                    <img src="https://graph.fb.me/100052114991259/picture" alt="User image" class="dropdown-toggle" data-toggle="user-menu">
                     <ul id="user-menu" class="dropdown-menu">
                         <li class="dropdown-menu-item">
                             <a class="dropdown-menu-link">

@@ -328,9 +328,9 @@ $(document).ready(() => {
         let loaide = $('#loaidedanh').text()
         let tongtiendanh = $('.tongtiendanh').val()
         if (sodanh == "" || tiendanh == "") {
-            alert('false')
+            alert('moi nhap tien')
         } else {
-            alert(tongtiendanh)
+
             $.ajax({
                 url: 'model/ajax/danhso.php',
                 type: 'post',
@@ -468,4 +468,127 @@ $(document).ready(() => {
         }
 
     })
+    $(document).on('click', '.so-dau-duoi', function() {
+        let giatri = 10;
+        let check = $(this).attr('class')
+        let tong = 0;
+        let tien = $('.tien-dau-duoi').val()
+        tien = parseInt(tien)
+        if (check.includes('so-act')) {
+
+            if ($('.tien-dau-duoi').val().length > 0) {
+                array_number = array_number.split('-')
+
+                tong = array_number.length * tien * giatri
+                array_number = array_number.join('-')
+                $('#tongtiendanh-dauduoi').val(tong)
+
+            }
+
+        } else {
+            array_number = array_number.split('-')
+            tong = array_number.length * tien * giatri
+            array_number = array_number.join('-')
+            $('#tongtiendanh-dauduoi').val(tong)
+            if (array_number <= 0) {
+                $('#tongtiendanh-dauduoi').val('')
+
+            }
+
+
+        }
+        if (isNaN(tong)) {
+            tong = 0
+        }
+
+    })
+    $(document).on('keyup', '.tien-dau-duoi', function() {
+        let giatri = 1;
+        let tien = $(this).val()
+        tien = parseInt(tien)
+
+        if (array_number.length > 0) {
+            array_number = array_number.split('-')
+
+            tong = array_number.length * tien * giatri
+            array_number = array_number.join('-')
+            if (isNaN(tong)) {
+                tong = 0;
+            }
+            $('#tongtiendanh-dauduoi').val(tong)
+
+        } else {
+
+            $(this).val('')
+            alert('bạn chưa chọn số')
+        }
+        if (isNaN(tien)) {
+            $(this).val('')
+        }
+    })
+
+    $('#send').click(() => {
+
+        let text = $('.input-message').val()
+        $('.input-message').val("")
+        if (text.trim() == "") {
+            alert('tin nhắn trống');
+        } else {
+
+            $.ajax({
+                url: 'model/ajax/chat.php',
+                type: 'post',
+                data: { text: text },
+                dataType: 'json',
+                beForeSend: () => {
+
+                },
+                success: (data) => {
+                    if (data.status = 0) {
+
+                    } else {
+
+                    }
+                }
+            })
+        }
+    })
+
+    function load_chat() {
+
+        var oldscrollHeight = $("#scrollmain").prop("scrollHeight") - 20;
+        // Pusher.logToConsole = true;
+
+        var pusher = new Pusher('7def0a3587a3a2ece425', {
+            cluster: 'ap1'
+        });
+
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function() {
+
+            $.ajax({
+                url: './views/html/user-chat.php',
+                method: 'post',
+
+                cache: false,
+                success: function(data) {
+                    $('#chat').html(data)
+                    var newscrollHeight = $("#scrollmain").prop("scrollHeight") - 20;
+
+                    if (newscrollHeight > oldscrollHeight) {
+                        $("#scrollmain").animate({ scrollTop: newscrollHeight }, 'normal');
+                    }
+                    if (data == "") {
+                        $('#chat').html(`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Loading...`)
+
+                    }
+                }
+            })
+
+        });
+
+
+    }
+    load_chat()
 })
