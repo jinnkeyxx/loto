@@ -372,7 +372,7 @@
                                 <td>
                                 </td>
                                 <td>
-                                    <input id="btn-form-submit-withdraw" type="submit" class="btn btn-signin pull-right"
+                                    <input id="btn-rut-tien" type="submit" class="btn btn-signin pull-right"
                                         value="Rút tiền">
                                     <input type="hidden" value="2" name="_submit">
                                 </td>

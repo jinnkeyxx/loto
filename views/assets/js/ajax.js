@@ -590,5 +590,33 @@ $(document).ready(() => {
 
 
     }
-    load_chat()
+    // load_chat()
+    $(document).on('click', '#btn-rut-tien', function(e) {
+
+        let bank = $('#from_overview_ruttien_bank').val()
+        let nguoinhan = $('#from_overview_ruttien_customer').val()
+        let sotaikhoan = $('#from_overview_ruttien_accountnumber').val()
+        let sotien = $('#from_overview_ruttien_tien').val()
+        let phone = $('#from_overview_ruttien_sdt').val()
+        if (bank == "" || nguoinhan == "" || sotaikhoan == "" || sotien == "" || phone == "") {
+            swall('Thông tin thiếu');
+        } else {
+            $.ajax({
+                url: 'model/ajax/rut-tien.php',
+                type: 'post',
+                data: { bank: bank, sotaikhoan: sotaikhoan, nguoinhan: nguoinhan, sotien: sotien, phone: phone },
+                dataType: 'json',
+                beForeSend: () => {
+
+                },
+                success: (data) => {
+                    if (data.status == 0) {
+                        swall(data.messages, 'success')
+                    } else {
+                        swall(data.messages, 'error')
+                    }
+                }
+            })
+        }
+    })
 })
